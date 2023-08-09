@@ -137,7 +137,7 @@ export const subGraphs = [
   <div className={styles.container}>
     <span className={styles['graph-title']}>Total Memory Allocated to each Cloud Provider</span>
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={subGraphDatas.memoryAlloc} layout="vertical" margin={{ top: 20, right: 5, left: -30, bottom: 0 }} barSize={20}>
+      <BarChart data={subGraphDatas.memoryAlloc} layout="vertical" margin={{ top: 20, right: 5, left: -30, bottom: 0 }} barSize={40}>
         <Bar dataKey="uv" fill="#6680DB" layout="vertical" />
         <CartesianGrid stroke="#383838" horizontal={false} />
         <XAxis type="number" ticks={[0, 2.5, 5, 7.5, 10, 12.5, 15, 17.5, 20, 22.5, 25]} unit='k'
@@ -173,4 +173,52 @@ export const subGraphs = [
       <span>Total Score</span>
     </div>
   </div>,
+]
+
+export const instances = [
+  <div className={styles.container}>
+    <span className={styles['graph-title']}>Latency by Instance</span>
+    <ResponsiveContainer width="100%" height="100%">
+      <BarChart data={subGraphDatas.processCntLine} layout="vertical" margin={{ top: 20, right: 5, left: -30, bottom: 0 }} barSize={20}>
+        <Bar dataKey="uv" fill="#6680DB" layout="vertical" />
+        <CartesianGrid stroke="#383838" horizontal={false} />
+        <XAxis type="number" ticks={[0, 1000, 2000, 3000, 4000, 5000, 6000]} tickFormatter={(v => v > 0 ? `${v / 1000}K` : v)} style={{ fill: '#fff', fontSize: '10px' }} />
+        <YAxis type="category" dataKey="name" width={180} style={{ fill: '#9BBFFF', fontSize: '12px' }} />
+      </ BarChart>
+    </ResponsiveContainer>
+    <span className={styles['graph-x-label']}>Latency - Total (ms)</span>
+  </div>,
+
+  <div>1</div>,
+
+  <div className={styles.container}>
+    <span className={styles['graph-title']}>MBpS by Instance</span>
+    <ResponsiveContainer width="100%" height="100%">
+      <BarChart data={subGraphDatas.processCntLine} layout="vertical" margin={{ top: 20, right: 5, left: -30, bottom: 0 }} barSize={20}>
+        <Bar dataKey="uv" fill="#6680DB" layout="vertical" />
+        <CartesianGrid stroke="#383838" horizontal={false} />
+        <XAxis type="number" ticks={[0, 1000, 2000, 3000, 4000, 5000, 6000]} tickFormatter={(v => v > 0 ? `${v / 1000}K` : v)} style={{ fill: '#fff', fontSize: '10px' }} />
+        <YAxis type="category" dataKey="name" width={180} style={{ fill: '#9BBFFF', fontSize: '12px' }} />
+      </ BarChart>
+    </ResponsiveContainer>
+    <span className={styles['graph-x-label']}>Throughput - Total (MB/s)</span>
+  </div>,
+
+  <div>2</div>,
+
+  <div className={styles.container}>
+    <span className={styles['graph-title']}>IOPS by Instance</span>
+    <ResponsiveContainer width="100%" height="100%">
+      <BarChart data={subGraphDatas.processCntLine} layout="vertical" margin={{ top: 20, right: 5, left: -30, bottom: 0 }} barSize={20}>
+        <Bar dataKey="uv" fill="#6680DB" layout="vertical" />
+        <CartesianGrid stroke="#383838" horizontal={false} />
+        <XAxis type="number" ticks={[0, 1000, 2000, 3000, 4000, 5000, 6000]} tickFormatter={(v => v > 0 ? `${v / 1000}K` : v)} style={{ fill: '#fff', fontSize: '10px' }} />
+        <YAxis type="category" dataKey="name" width={180} style={{ fill: '#9BBFFF', fontSize: '12px' }} />
+      </ BarChart>
+    </ResponsiveContainer>
+    <span className={styles['graph-x-label']}>IOPS - Total (IO/s)</span>
+  </div>,
+
+  <div>3</div>,
+
 ]

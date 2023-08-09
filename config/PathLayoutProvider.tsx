@@ -4,7 +4,7 @@ import HeaderMenu from '@/app/components/Header';
 // Use usePathname for catching route name.
 import { usePathname } from 'next/navigation';
 
-export const LayoutProvider = ({ children }) => {
+export const LayoutProvider = ({ children }: any) => {
   const pathname = usePathname();
   return (
     <>

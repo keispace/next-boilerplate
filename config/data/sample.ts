@@ -675,3 +675,24 @@ export const subGraphDatas = {
     { name: 'Google Compute', uv: 1 },
   ],
 };
+
+export const instanceDatas = {
+  latency: [
+    { name: 'Amazon AWS EC2', uv: 5000 },
+    { name: 'Microsoft...Compute OS', uv: 1200 },
+    { name: 'Oracle / QEMU', uv: 200 },
+    { name: 'Google Compute', uv: 100 },
+  ],
+  mbps: [
+    { name: 'Amazon AWS EC2', uv: 5000 },
+    { name: 'Microsoft...Compute OS', uv: 1200 },
+    { name: 'Oracle / QEMU', uv: 200 },
+    { name: 'Google Compute', uv: 100 },
+  ],
+  iops: [
+    { name: 'Amazon AWS EC2', uv: 5000 },
+    { name: 'Microsoft...Compute OS', uv: 1200 },
+    { name: 'Oracle / QEMU', uv: 200 },
+    { name: 'Google Compute', uv: 100 },
+  ],
+};

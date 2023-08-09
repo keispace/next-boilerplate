@@ -381,6 +381,13 @@
       }
     }
   }
+  &.instance {
+    grid-template-columns: repeat(2, 1fr);
+    border: 0;
+    gap: 1rem;
+    background: 0;
+    padding: 0;
+  }
 }
 
 .label {

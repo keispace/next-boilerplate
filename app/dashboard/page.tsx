@@ -3,7 +3,7 @@ import StorageCircle from "../components/StorageCircle";
 import { dashDatas, monitor1Datas } from '@/config/data/sample';
 import styles from './Dashboard.module.scss';
 import Image from "next/image";
-import { LineGraph, subGraphs } from "../components/Graph";
+import { LineGraph, instances, subGraphs } from "../components/Graph";
 
 const colors = ['#F80000', '#5360E4', '#2DD3DE', '#FF9900', '#00A1E0', '#FFFFFF', '#00FF87', '#2BB0FF',]
 const detailColor = ['#2C2C2C', '#2C2C2C', '#2C2C2C', '#2C2C2C', '#2C2C2C', '#2C2C2C', '#2C2C2C', '#2C2C2C',]
@@ -129,18 +129,21 @@ const Dashboard = () => {
       <div className={`${styles.grid} ${styles.monitor1}`}>
         {monitor1Datas.map((data, i) =>
           <LineGraph key={`mon1-graph-${i}`} colors={colors} data={data} />
-
         )}
       </div>
     </div>
 
     <div className={styles.wrap}>
-      서브 그래프
       <div className={`${styles.grid} ${styles.monitor2}`}>
         {subGraphs}
       </div>
     </div>
-    <div>인스턴스</div>
+
+    <div className={styles.wrap}>
+      <div className={`${styles.grid} ${styles.instance}`}>
+        {instances}
+      </div>
+    </div>
 
 
   </div>
