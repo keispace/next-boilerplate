@@ -1,0 +1,54 @@
+.container {
+  width: 100vw;
+  height: 100px;
+  padding: 0 3rem;
+  background: #121213;
+  color: #a1a1a1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  .wrap {
+    width: min(1920px, 100vw);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .logo {
+      flex: 6;
+      color: #fff;
+      font-family: Poppins;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: -0.6px;
+    }
+    .menus {
+      flex: 4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5vw;
+      line-height: 96px;
+      .menu {
+        display: block;
+        &.active {
+          color: #fff;
+          border-bottom: 4px solid #fff;
+          border-left: 4px solid #121213;
+          border-right: 4px solid #121213;
+        }
+      }
+    }
+    .icons {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1rem;
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

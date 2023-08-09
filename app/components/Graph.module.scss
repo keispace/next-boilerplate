@@ -1,0 +1,45 @@
+.container {
+  width: 100%;
+  min-height: 200px;
+
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: #fff;
+  border-radius: 4px;
+  border: 1px solid #222;
+  background: linear-gradient(0deg, rgba(30, 30, 30, 0.5) 1.56%, #1e1e1e 100%);
+  backdrop-filter: blur(12px);
+}
+
+.graph-title {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-left: 1rem;
+}
+
+.graph-unit {
+  color: #c5c5d3;
+  font-family: Pretendard;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 15px */
+  margin-left: 1rem;
+}
+.graph-x-label {
+  width: 100%;
+  color: #c5c5d3;
+  font-family: Pretendard;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 15px */
+  text-align: center;
+}
