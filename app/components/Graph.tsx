@@ -1,5 +1,5 @@
 'use client'
-import { monitor1Datas, subGraphDatas } from '@/config/data/sample';
+import { instanceDatas, monitor1Datas, subGraphDatas } from '@/config/data/sample';
 import styles from './Graph.module.scss';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, ResponsiveContainer, Tooltip, BarChart, Bar, ScatterChart, Scatter, AreaChart, Area, Legend } from 'recharts';
 
@@ -16,7 +16,7 @@ export const LineGraph = ({ colors, data }: LineGraphOptions) => {
     <ResponsiveContainer width="100%" height="100%">
       <LineChart data={data.lines} margin={{ top: 20, right: 5, left: -30, bottom: 0 }}>
         {colors.map((color, i) =>
-          <Line type="linear" dataKey={`v${i}`} dot={false} stroke={color} />
+          <Line key={`${data.title}linegraph${color}`} type="linear" dataKey={`v${i}`} dot={false} stroke={color} />
         )}
         <CartesianGrid stroke="#383838" />
         <XAxis dataKey="x" ticks={data.axisX} padding={{ right: 30 }} style={data.style.axisX} />
@@ -179,7 +179,7 @@ export const instances = [
   <div className={styles.container}>
     <span className={styles['graph-title']}>Latency by Instance</span>
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={subGraphDatas.processCntLine} layout="vertical" margin={{ top: 20, right: 5, left: -30, bottom: 0 }} barSize={20}>
+      <BarChart data={instanceDatas.latency} layout="vertical" margin={{ top: 20, right: 5, left: -30, bottom: 0 }} barSize={20}>
         <Bar dataKey="uv" fill="#6680DB" layout="vertical" />
         <CartesianGrid stroke="#383838" horizontal={false} />
         <XAxis type="number" ticks={[0, 1000, 2000, 3000, 4000, 5000, 6000]} tickFormatter={(v => v > 0 ? `${v / 1000}K` : v)} style={{ fill: '#fff', fontSize: '10px' }} />
@@ -194,7 +194,7 @@ export const instances = [
   <div className={styles.container}>
     <span className={styles['graph-title']}>MBpS by Instance</span>
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={subGraphDatas.processCntLine} layout="vertical" margin={{ top: 20, right: 5, left: -30, bottom: 0 }} barSize={20}>
+      <BarChart data={instanceDatas.mbps} layout="vertical" margin={{ top: 20, right: 5, left: -30, bottom: 0 }} barSize={20}>
         <Bar dataKey="uv" fill="#6680DB" layout="vertical" />
         <CartesianGrid stroke="#383838" horizontal={false} />
         <XAxis type="number" ticks={[0, 1000, 2000, 3000, 4000, 5000, 6000]} tickFormatter={(v => v > 0 ? `${v / 1000}K` : v)} style={{ fill: '#fff', fontSize: '10px' }} />

@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // output: 'export',
+    output: 'export',
     reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
     transpilePackages: ['antd'],
     swcMinify: true,
+    images: { unoptimized: true },
     experimental: {
         appDir: true,
         // serverActions: true,
