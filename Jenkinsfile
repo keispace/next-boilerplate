@@ -3,7 +3,7 @@
 pipeline {
 //필요한 사전 선언
     environment {
-//공통변수 시작
+//  공통변수 시작
         GITURL = "git@github.com:InfraBlockchain/pbc-console-web-demo.git"
         BRANCH = "main"
         SLACKCHANNEL = "#proj-bc-labs-cicd-alarm"
