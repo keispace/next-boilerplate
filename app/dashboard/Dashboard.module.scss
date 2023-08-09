@@ -5,7 +5,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 5rem;
+  padding: 5rem 0;
+
   color: #fff;
   background-color: #000;
   opacity: 0.9;
@@ -384,6 +385,11 @@
   &.instance {
     grid-template-columns: repeat(2, 1fr);
     border: 0;
+    div {
+      grid-row: span 2;
+      height: min(300px, 40vw);
+    }
+
     gap: 1rem;
     background: 0;
     padding: 0;

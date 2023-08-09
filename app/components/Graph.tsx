@@ -179,46 +179,99 @@ export const instances = [
   <div className={styles.container}>
     <span className={styles['graph-title']}>Latency by Instance</span>
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={instanceDatas.latency} layout="vertical" margin={{ top: 20, right: 5, left: -30, bottom: 0 }} barSize={20}>
+      <BarChart data={instanceDatas.latency} layout="vertical" margin={{ top: 20, right: 5, left: -30, bottom: 0 }} barSize={13}>
         <Bar dataKey="uv" fill="#6680DB" layout="vertical" />
         <CartesianGrid stroke="#383838" horizontal={false} />
-        <XAxis type="number" ticks={[0, 1000, 2000, 3000, 4000, 5000, 6000]} tickFormatter={(v => v > 0 ? `${v / 1000}K` : v)} style={{ fill: '#fff', fontSize: '10px' }} />
-        <YAxis type="category" dataKey="name" width={180} style={{ fill: '#9BBFFF', fontSize: '12px' }} />
+        <XAxis type="number" ticks={[0, 2.5, 5, 7.5, 10, 12.5, 15]} style={{ fill: '#fff', fontSize: '10px' }} />
+        <YAxis type="category" dataKey="name" width={120} style={{ fill: '#9BBFFF', fontSize: '12px' }} />
       </ BarChart>
     </ResponsiveContainer>
     <span className={styles['graph-x-label']}>Latency - Total (ms)</span>
   </div>,
 
-  <div>1</div>,
+  <div className={styles.container}>
+    <span className={styles['graph-title']}>Large Instance IOPs Trending</span>
+    <ResponsiveContainer width="100%" height="100%">
+      <LineChart data={instanceDatas.iopsTrending} margin={{ top: 20, right: 5, left: -30, bottom: 0 }}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="x" ticks={[12, 14, 16, 18, 20, 22, 24]} unit=":00 PM" style={{ fill: '#fff', fontSize: '10px' }} />
+        <YAxis ticks={[0, 12]} unit='k' style={{ fill: '#fff', fontSize: '10px' }} />
+        <Legend wrapperStyle={{ fontSize: "12px" }} iconType='square' iconSize={10} />
+
+        <Line type="monotone" dataKey="v0" name="r5.2xlarge" stroke="#4D629E" dot={false} />
+        <Line type="monotone" dataKey="v1" name="r4.16xlarge" stroke="#CE2A96" dot={false} />
+        <Line type="monotone" dataKey="v2" name="m4.4xlarge" stroke="#78289D" dot={false} />
+        <Line type="monotone" dataKey="v3" name="m4.xlarge" stroke="#EAA961" dot={false} />
+        <Line type="monotone" dataKey="v4" name="t2.medium" stroke="#D8573C" dot={false} />
+      </LineChart>
+    </ResponsiveContainer>
+  </div>,
 
   <div className={styles.container}>
     <span className={styles['graph-title']}>MBpS by Instance</span>
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={instanceDatas.mbps} layout="vertical" margin={{ top: 20, right: 5, left: -30, bottom: 0 }} barSize={20}>
+      <BarChart data={instanceDatas.mbps} layout="vertical" margin={{ top: 20, right: 5, left: -30, bottom: 0 }} barSize={13}>
         <Bar dataKey="uv" fill="#6680DB" layout="vertical" />
         <CartesianGrid stroke="#383838" horizontal={false} />
-        <XAxis type="number" ticks={[0, 1000, 2000, 3000, 4000, 5000, 6000]} tickFormatter={(v => v > 0 ? `${v / 1000}K` : v)} style={{ fill: '#fff', fontSize: '10px' }} />
-        <YAxis type="category" dataKey="name" width={180} style={{ fill: '#9BBFFF', fontSize: '12px' }} />
+        <XAxis type="number" ticks={[0, 5, 10, 15, 20]} style={{ fill: '#fff', fontSize: '10px' }} />
+        <YAxis type="category" dataKey="name" width={120} style={{ fill: '#9BBFFF', fontSize: '12px' }} />
       </ BarChart>
     </ResponsiveContainer>
     <span className={styles['graph-x-label']}>Throughput - Total (MB/s)</span>
   </div>,
 
-  <div>2</div>,
+  <div className={styles.container}>
+    <span className={styles['graph-title']}>Large Instamce Latency Trending</span>
+    <ResponsiveContainer width="100%" height="100%">
+      <LineChart data={instanceDatas.latencyTrending} margin={{ top: 20, right: 5, left: -30, bottom: 0 }}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="x" ticks={[12, 14, 16, 18, 20, 22, 24]} unit=":00 PM" style={{ fill: '#fff', fontSize: '10px' }} />
+        <YAxis ticks={[0, 400]} style={{ fill: '#fff', fontSize: '10px' }} />
+        <Legend wrapperStyle={{ fontSize: "12px" }} iconType='square' iconSize={10} />
+
+        <Line type="monotone" dataKey="v0" name="t2.micro" stroke="#4D629E" dot={false} />
+        <Line type="monotone" dataKey="v1" name="r4.16xlarge" stroke="#CE2A96" dot={false} />
+        <Line type="monotone" dataKey="v2" name="m4.4xlarge" stroke="#78289D" dot={false} />
+        <Line type="monotone" dataKey="v3" name="m4.xlarge" stroke="#EAA961" dot={false} />
+        <Line type="monotone" dataKey="v4" name="t2.medium" stroke="#D8573C" dot={false} />
+      </LineChart>
+    </ResponsiveContainer>
+  </div>,
+
 
   <div className={styles.container}>
     <span className={styles['graph-title']}>IOPS by Instance</span>
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={subGraphDatas.processCntLine} layout="vertical" margin={{ top: 20, right: 5, left: -30, bottom: 0 }} barSize={20}>
+      <BarChart data={instanceDatas.iops} layout="vertical" margin={{ top: 20, right: 5, left: -30, bottom: 0 }} barSize={13}>
         <Bar dataKey="uv" fill="#6680DB" layout="vertical" />
         <CartesianGrid stroke="#383838" horizontal={false} />
-        <XAxis type="number" ticks={[0, 1000, 2000, 3000, 4000, 5000, 6000]} tickFormatter={(v => v > 0 ? `${v / 1000}K` : v)} style={{ fill: '#fff', fontSize: '10px' }} />
-        <YAxis type="category" dataKey="name" width={180} style={{ fill: '#9BBFFF', fontSize: '12px' }} />
+        <XAxis type="number" ticks={[0, 250, 500, 750, 1000]} style={{ fill: '#fff', fontSize: '10px' }} />
+        <YAxis type="category" dataKey="name" width={120} style={{ fill: '#9BBFFF', fontSize: '12px' }} />
       </ BarChart>
     </ResponsiveContainer>
     <span className={styles['graph-x-label']}>IOPS - Total (IO/s)</span>
   </div>,
 
-  <div>3</div>,
+  <div className={styles.container}>
+    <span className={styles['graph-title']}>Large Instance MBps Trending</span>
+    <ResponsiveContainer width="100%" height="100%">
+      <LineChart data={instanceDatas.mpbsTranding} margin={{ top: 20, right: 5, left: -30, bottom: 0 }}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="x" ticks={[12, 14, 16, 18, 20, 22, 24]} unit=":00 PM" style={{ fill: '#fff', fontSize: '10px' }} />
+        <YAxis ticks={[0, 480]} style={{ fill: '#fff', fontSize: '10px' }} />
+        <Legend wrapperStyle={{ fontSize: "12px" }} iconType='square' iconSize={10} />
 
+        <Line type="monotone" dataKey="v0" name="Standard_DS3_v2" stroke="#4D629E" dot={false} />
+        <Line type="monotone" dataKey="v1" name="Standard_DS4_v2" stroke="#CE2A96" dot={false} />
+        <Line type="monotone" dataKey="v2" name="r4.16xlarge" stroke="#78289D" dot={false} />
+        <Line type="monotone" dataKey="v3" name="m5.2xlarge" stroke="#EAA961" dot={false} />
+        <Line type="monotone" dataKey="v4" name="m5.4xlarge" stroke="#D8573C" dot={false} />
+      </LineChart>
+    </ResponsiveContainer>
+  </div>,
+
+  <div className={styles.container}>
+    <span className={styles['graph-title']}>AWS Instances</span>
+    <div className={styles.table}></div>
+  </div>,
 ]
