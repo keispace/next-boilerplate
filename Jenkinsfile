@@ -4,11 +4,11 @@ pipeline {
 //필요한 사전 선언
     environment {
 //공통변수 시작
-        GITURL = "git@github.com:InfraBlockchain/demo-moov-maket-web.git"
-        BRANCH = "moov-market"
+        GITURL = "git@github.com:InfraBlockchain/demo.pbc.bc-labs.net.git"
+        BRANCH = "main"
         SLACKCHANNEL = "#proj-bc-labs-cicd-alarm"
-        S3 = "market.moov.bc-labs.net"
-        CFID = "E23IRXK1GDBRU6"
+        S3 = "demo.pbc.bc-labs.net"
+        CFID = "E8EOQ5QM1JPW8"
         AWSPROFILE = "bc-labs"
  //추가변수 설정
         }
