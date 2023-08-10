@@ -1,7 +1,7 @@
 'use client'
 import { instanceDatas, monitor1Datas, subGraphDatas } from '@/config/data/sample';
 import styles from './Graph.module.scss';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, ScatterChart, Scatter, AreaChart, Area, Legend } from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, ScatterChart, Scatter, AreaChart, Area, Legend, Label, LabelList } from 'recharts';
 
 const PlusBox = () => <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect x="5" y="9.5" width="9" height="1" rx="0.5" fill="#D9D9D9" />
@@ -63,7 +63,55 @@ export const LineGraph = ({ colors, data }: LineGraphOptions) => {
     </ResponsiveContainer>
   </div>
 }
+<svg xmlns="http://www.w3.org/2000/svg" width="83" height="15" viewBox="0 0 83 15" fill="none">
+  <path d="M0.9375 15 H82.9375 V0 H0.9375 V15 Z" fill="#FF9A01" fill-opacity="0.13" />
 
+  <path d="M5.9375 10 H82.9375 V5 H5.9375 V10 Z" fill="#FF9900" />
+</svg>
+
+
+
+export const LinearGraph = () => {
+  const data = [
+    { x: 1, AWS: 15, Azure: 14, OVH: 13, NCloud: 13, "Sales...": 12, "IBM C..": 12, GCP: 11, OCI: 10, rest: 99 }
+  ]
+  const meta = [
+    ['AWS', '#FF9900'],
+    ['OVH', "#5360E4"],
+    ['NCloud', "#00FF87"],
+    ['Sales...', "#00A1E0"],
+    ['IBM C..', "#2DD3DE"],
+    ['GCP', "#FFFFFF"],
+    ['OCI', "#F80000"],
+    ['rest', '#4F4F4F']
+  ]
+  const getPath = (x: number, y: number, width: number, height: number) => {
+    return `M${x},${y} h${width} v${height} h-${width} Z`
+  };
+
+  const BarPath = (props: any, i: number, last: boolean) => {
+    const { fill, x, y, width, height } = props;
+    return <>
+      {i === 0 ? <path d={getPath(x - 10, y - 5, width + 10, height + 10)} fill={fill} fillOpacity="0.13" /> :
+        last ? <path d={getPath(x, y - 5, width + 10, height + 10)} fill={fill} fillOpacity="0.13" /> :
+          <path d={getPath(x, y - 5, width, height + 10)} fill={fill} fillOpacity="0.13" />}
+      <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />
+    </>
+  }
+
+  return <ResponsiveContainer width="100%" height="100%">
+    <BarChart data={data} layout='vertical' margin={{ left: 50 }}>
+      <XAxis type='number' hide />
+      <YAxis dataKey="x" hide type='category' />
+      <Legend />
+      {meta.map((el, i) =>
+        <Bar key={`store-linear${i}`} dataKey={el[0]} stackId="1" barSize={5} shape={(props) => BarPath(props, i, meta.length - 1 === i)} fill={el[1]} legendType={meta.length - 1 === i ? 'none' : 'circle'}>
+          {meta.length - 1 === i ? null : <LabelList dataKey={el[0]} position="bottom" offset={20} formatter={(v: string) => v + '%'} style={{ fill: el[1] }} />}
+        </Bar>
+      )}
+    </BarChart>
+  </ResponsiveContainer>
+}
 export const subGraphs = [
   <div className={styles.container}>
     <span className={styles['graph-title']}>Count of Process in each Cloud Provider</span>
