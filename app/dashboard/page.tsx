@@ -39,22 +39,24 @@ const Dashboard = () => {
     <div className={styles.wrap}>
       <span className={styles.title}>Storage Analysis</span>
       <div className={styles.rowbox}>
-        <div className={`${styles.grid} ${styles.storage1}`}>
-          <div className={`${styles.azure}`}><Image src='/dashboard/logos/azure.svg' alt='azure' width="80" height="23" /> &nbsp; 14%</div>
-          <div className={`${styles.naver}`}><Image src='/dashboard/logos/naver.svg' alt='naver' width="43" height="33" /> &nbsp; 13%</div>
-          <div className={`${styles.oracle}`}>10%  &nbsp; <Image src='/dashboard/logos/oracle.svg' alt='oracle' width="100" height="12" /></div>
-          <div className={`${styles.ovh}`}>13%  &nbsp; <Image src='/dashboard/logos/ovh.svg' alt='ovh' width="100" height="15" /></div>
-          <div className={`${styles.gcp}`}><Image src='/dashboard/logos/gcp.svg' alt='gcp' width="87" height="49" /> &nbsp;  11%</div>
-          <div className={`${styles.sf}`}><Image src='/dashboard/logos/salesforce.svg' alt='salesforce' width="46" height="32" /> &nbsp;  12%</div>
-          <div className={`${styles.ibm}`}>12%  &nbsp; <Image src='/dashboard/logos/ibm.svg' alt='ibm' width="76" height="47" /> </div>
-          <div className={`${styles.aws}`}>15%  &nbsp; <Image src='/dashboard/logos/aws.svg' alt='aws' width="58" height="49" /> </div>
-          <StorageCircle className={`${styles.circle}`} colors={colors}>
-            <p>
-              <span>Storage Usage</span>
-              <span className={styles.big}>1,350 TB</span>
-              <span>of 3950 TB</span>
-            </p>
-          </StorageCircle>
+        <div className={`${styles.grid} ${styles.storage1wrap}`}>
+          <div className={` ${styles.storage1}`}>
+            <div className={`${styles.azure}`}><Image src='/dashboard/logos/azure.svg' alt='azure' width="80" height="23" /> &nbsp; 14%</div>
+            <div className={`${styles.naver}`}><Image src='/dashboard/logos/naver.svg' alt='naver' width="43" height="33" /> &nbsp; 13%</div>
+            <div className={`${styles.oracle}`}>10%  &nbsp; <Image src='/dashboard/logos/oracle.svg' alt='oracle' width="100" height="12" /></div>
+            <div className={`${styles.ovh}`}>13%  &nbsp; <Image src='/dashboard/logos/ovh.svg' alt='ovh' width="100" height="15" /></div>
+            <div className={`${styles.gcp}`}><Image src='/dashboard/logos/gcp.svg' alt='gcp' width="87" height="49" /> &nbsp;  11%</div>
+            <div className={`${styles.sf}`}><Image src='/dashboard/logos/salesforce.svg' alt='salesforce' width="46" height="32" /> &nbsp;  12%</div>
+            <div className={`${styles.ibm}`}>12%  &nbsp; <Image src='/dashboard/logos/ibm.svg' alt='ibm' width="76" height="47" /> </div>
+            <div className={`${styles.aws}`}>15%  &nbsp; <Image src='/dashboard/logos/aws.svg' alt='aws' width="58" height="49" /> </div>
+            <StorageCircle className={`${styles.circle}`} colors={colors}>
+              <p>
+                <span>Storage Usage</span>
+                <span className={styles.big}>1,350 TB</span>
+                <span>of 3950 TB</span>
+              </p>
+            </StorageCircle>
+          </div>
         </div>
         <div className={`${styles.grid} ${styles.storage2}`}>
           <Label title={'Total Files'} value={'213 K'} />

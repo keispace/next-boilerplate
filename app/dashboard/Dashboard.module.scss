@@ -72,12 +72,11 @@
   &.cloud {
     grid-template-columns: repeat(4, 1fr);
   }
-
-  &.storage1 {
-    flex: 1.2;
-    background: none;
-    border: 0;
-    backdrop-filter: none;
+  &.storage1wrap {
+    flex: 1.7;
+  }
+  & .storage1 {
+    display: grid;
     gap: 0;
     height: 100%;
     grid-template-areas:
@@ -182,7 +181,7 @@
     flex: 1;
     grid-template-columns: repeat(2, 1fr);
     border: 0;
-
+    gap: 5rem;
     align-self: stretch;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
