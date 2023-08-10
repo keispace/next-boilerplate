@@ -117,7 +117,7 @@ const Dashboard = () => {
       <span className={styles.title}>Monitoring</span>
       <div className={`${styles.rowbox} ${styles.index}`}>
         {dashDatas.map(data =>
-          <div>
+          <div key={`monitoring-dash-${data.class}`}>
             <Image src={`/dashboard/icons/icon-${data.class}.svg`} alt={`icon-${data.class}`} width={24} height={24} />
             <span>
               {data.name}
