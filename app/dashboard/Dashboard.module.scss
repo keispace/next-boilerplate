@@ -71,21 +71,31 @@
   }
 
   &.storage1 {
+    flex: 1.2;
     background: none;
     border: 0;
+    backdrop-filter: none;
     gap: 0;
     height: 100%;
     grid-template-areas:
-      'azure  azure     oracle   oracle'
-      'naver  circle    circle   ovh'
-      ' gcp   circle    circle   ibm'
-      ' sf      sf        aws    aws';
+      'azure  oracle ovh'
+      'naver  circle ibm '
+      ' gcp     sf   aws';
+    transform: rotate(45deg);
+    font-family: Pretendard;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 
-    & .circle {
+    & > .circle {
       grid-area: circle;
       z-index: 1;
-      transform: scale(1.1);
+      & > svg {
+        transform: scale(1.2) rotate(0);
+      }
       p {
+        transform: scale(1);
         padding: 0;
         margin: 0;
         display: flex;
@@ -94,124 +104,79 @@
         align-items: center;
         span {
           color: #9ea4b8;
-          font-family: Pretendard;
           font-size: 16px;
-          font-style: normal;
           font-weight: 400;
-          line-height: normal;
           &.big {
             padding: 0;
             margin: 0;
             color: #fff;
-            font-family: Pretendard;
             font-size: 40px;
-            font-style: normal;
             font-weight: 700;
-            line-height: normal;
           }
         }
       }
     }
-    & .azure {
-      grid-area: azure;
-      color: #2bb0ff;
-      font-family: Pretendard;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
-      display: flex;
-      justify-content: flex-end;
-      padding-right: 5rem;
-    }
-    & .oracle {
-      grid-area: oracle;
-      color: #f80000;
-      font-family: Pretendard;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
-      display: flex;
-      justify-content: center;
-    }
-    & .naver {
-      grid-area: naver;
-      color: #00ff87;
-      font-family: Pretendard;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-    & .ovh {
-      grid-area: ovh;
-      color: #5360e4;
-      font-family: Pretendard;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding-top: 1.5rem;
-    }
-    & .gcp {
-      grid-area: gcp;
-      color: #fff;
-      font-family: Pretendard;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
+    & > div {
+      --_g: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-    & .ibm {
-      grid-area: ibm;
-      color: #2dd3de;
-      font-family: Pretendard;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    & .sf {
-      grid-area: sf;
-      color: #00a1e0;
-      font-family: Pretendard;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
-      display: flex;
-      justify-content: flex-end;
-      padding-right: 4rem;
-      align-items: flex-start;
-    }
-    & .aws {
-      grid-area: aws;
-      color: #f90;
-      font-family: Pretendard;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
-      display: flex;
-      justify-content: flex-start;
-      padding-left: 3rem;
-      align-items: flex-start;
+      transform: translate(var(--_x, 0), var(--_y, 0)) rotate(-45deg);
+      &.azure {
+        --_x: calc(1rem - var(--_g));
+        --_y: calc(8rem + var(--_g));
+        grid-area: azure;
+        color: #2bb0ff;
+      }
+      &.naver {
+        --_x: calc(1.1rem - var(--_g));
+        --_y: calc(5.7rem + var(--_g));
+        grid-area: naver;
+        color: #00ff87;
+      }
+
+      &.oracle {
+        --_x: calc(0.5rem + var(--_g));
+        --_y: calc(-4.4rem - var(--_g));
+        grid-area: oracle;
+        color: #f80000;
+      }
+      &.ovh {
+        --_x: calc(-6.2rem + var(--_g));
+        --_y: calc(-3.3rem - var(--_g));
+        grid-area: ovh;
+        color: #5360e4;
+      }
+
+      &.gcp {
+        --_x: calc(6.1rem - var(--_g));
+        --_y: calc(2.3rem + var(--_g));
+        grid-area: gcp;
+        color: #fff;
+      }
+      &.sf {
+        --_x: calc(1.2rem - var(--_g));
+        --_y: calc(2.4rem + var(--_g));
+        grid-area: sf;
+        color: #00a1e0;
+      }
+
+      &.ibm {
+        --_x: calc(-0.7rem + var(--_g));
+        --_y: calc(-7rem - var(--_g));
+        grid-area: ibm;
+        color: #2dd3de;
+      }
+      &.aws {
+        --_x: calc(-1rem + var(--_g));
+        --_y: calc(-9.4rem - var(--_g));
+        grid-area: aws;
+        color: #f90;
+      }
     }
   }
   &.storage2 {
+    flex: 1;
     grid-template-columns: repeat(2, 1fr);
     border: 0;
 
@@ -353,7 +318,7 @@
   }
   &.monitor2 {
     grid-template-columns: repeat(11, 1fr);
-    grid-template-rows: repeat(14, 1fr);
+    grid-template-rows: repeat(12, 1fr);
     border: 0;
     gap: 1rem;
     background: 0;
@@ -385,8 +350,7 @@
   &.instance {
     grid-template-columns: repeat(2, 1fr);
     border: 0;
-    div {
-      grid-row: span 2;
+    & > div {
       height: min(300px, 40vw);
     }
 

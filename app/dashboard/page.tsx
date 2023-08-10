@@ -2,8 +2,9 @@
 import StorageCircle from "../components/StorageCircle";
 import { dashDatas, monitor1Datas } from '@/config/data/sample';
 import styles from './Dashboard.module.scss';
+
 import Image from "next/image";
-import { LineGraph, instances, subGraphs } from "../components/Graph";
+import { LineGraph, instances, subGraphs as monitor2Datas } from "../components/Graph";
 
 const colors = ['#F80000', '#5360E4', '#2DD3DE', '#FF9900', '#00A1E0', '#FFFFFF', '#00FF87', '#2BB0FF',]
 const detailColor = ['#2C2C2C', '#2C2C2C', '#2C2C2C', '#2C2C2C', '#2C2C2C', '#2C2C2C', '#2C2C2C', '#2C2C2C',]
@@ -41,10 +42,10 @@ const Dashboard = () => {
         <div className={`${styles.grid} ${styles.storage1}`}>
           <div className={`${styles.azure}`}><Image src='/dashboard/logos/azure.svg' alt='azure' width="80" height="23" /> &nbsp; 14%</div>
           <div className={`${styles.naver}`}><Image src='/dashboard/logos/naver.svg' alt='naver' width="43" height="33" /> &nbsp; 13%</div>
-          <div className={`${styles.gcp}`}><Image src='/dashboard/logos/gcp.svg' alt='gcp' width="87" height="49" /> &nbsp;  11%</div>
-          <div className={`${styles.sf}`}><Image src='/dashboard/logos/salesforce.svg' alt='salesforce' width="46" height="32" /> &nbsp;  12%</div>
           <div className={`${styles.oracle}`}>10%  &nbsp; <Image src='/dashboard/logos/oracle.svg' alt='oracle' width="100" height="12" /></div>
           <div className={`${styles.ovh}`}>13%  &nbsp; <Image src='/dashboard/logos/ovh.svg' alt='ovh' width="100" height="15" /></div>
+          <div className={`${styles.gcp}`}><Image src='/dashboard/logos/gcp.svg' alt='gcp' width="87" height="49" /> &nbsp;  11%</div>
+          <div className={`${styles.sf}`}><Image src='/dashboard/logos/salesforce.svg' alt='salesforce' width="46" height="32" /> &nbsp;  12%</div>
           <div className={`${styles.ibm}`}>12%  &nbsp; <Image src='/dashboard/logos/ibm.svg' alt='ibm' width="76" height="47" /> </div>
           <div className={`${styles.aws}`}>15%  &nbsp; <Image src='/dashboard/logos/aws.svg' alt='aws' width="58" height="49" /> </div>
           <StorageCircle className={`${styles.circle}`} colors={colors}>
@@ -135,7 +136,7 @@ const Dashboard = () => {
 
     <div className={styles.wrap}>
       <div className={`${styles.grid} ${styles.monitor2}`}>
-        {subGraphs}
+        {monitor2Datas}
       </div>
     </div>
 

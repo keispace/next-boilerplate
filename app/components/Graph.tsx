@@ -1,8 +1,46 @@
 'use client'
 import { instanceDatas, monitor1Datas, subGraphDatas } from '@/config/data/sample';
 import styles from './Graph.module.scss';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, ResponsiveContainer, Tooltip, BarChart, Bar, ScatterChart, Scatter, AreaChart, Area, Legend } from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, ScatterChart, Scatter, AreaChart, Area, Legend } from 'recharts';
 
+const PlusBox = () => <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="5" y="9.5" width="9" height="1" rx="0.5" fill="#D9D9D9" />
+  <rect x="9" y="14.5" width="9" height="1" rx="0.5" transform="rotate(-90 9 14.5)" fill="#D9D9D9" />
+  <rect x="0.5" y="1" width="17" height="17" stroke="#B1B1B1" />
+</svg>
+
+const MinusBox = () => <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="5" y="9" width="9" height="1" rx="0.5" fill="#D9D9D9" />
+  <rect x="0.5" y="0.5" width="17" height="17" stroke="#B1B1B1" />
+</svg>
+
+const DownArrow = () => <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.3636 13.1364C6.71508 13.4879 7.28492 13.4879 7.6364 13.1364L13.364 7.40883C13.7154 7.05736 13.7154 6.48751 13.364 6.13604C13.0125 5.78457 12.4426 5.78457 12.0912 6.13604L7 11.2272L1.90883 6.13604C1.55736 5.78457 0.987511 5.78457 0.636039 6.13604C0.284567 6.48751 0.284567 7.05736 0.636039 7.40883L6.3636 13.1364ZM6.1 0.5L6.1 12.5L7.9 12.5L7.9 0.5L6.1 0.5Z" fill="#AEAEAE" />
+</svg>
+
+
+const Table = ({ data }: { data: { title: string, sub: string, headers: string[], rows: string[][] } }) =>
+  <div className={`${styles.container} ${styles.tablewrap}`}>
+    <span className={styles['graph-title']}>{data.title}</span>
+    <span className={styles['graph-sub-title']}>{data.sub}</span>
+    <ResponsiveContainer width="100%" height="100%">
+      <div className={styles.table}>
+        {data.headers.map((el, i) =>
+          i === 0 ?
+            <div key={`${data.title} header-${i}`}><MinusBox /> &nbsp;&nbsp;&nbsp; {el} &nbsp;<DownArrow /></div>
+            : <div key={`${data.title} header-${i}`}>{el}</div>
+        )}
+        {data.rows.map((row, i) =>
+          <>{row.map((el, j) =>
+            j === 0 ?
+              <div key={`${data.title} key-${i}-${j}`}><PlusBox /> &nbsp;&nbsp;&nbsp; t3.medium (8)</div>
+              : <div key={`${data.title} key-${i}-${j}`}>{el}</div>
+          )}
+          </>
+        )}
+      </div>
+    </ResponsiveContainer>
+  </div>
 
 export interface LineGraphOptions {
   colors: string[],
@@ -149,30 +187,21 @@ export const subGraphs = [
   </div>,
 
   <div className={styles.container}>
-    <div>
-      <span className={styles['graph-title']}>Cloud Performance</span>
-      <span>1.01 <span>ms</span></span>
-      <span>Latency-total</span>
+    <span className={styles['graph-title']}>Cloud Performance</span>
+    <div className={styles['cloud-performance']}>
+      <span className={styles.top}>1.01 <span className={styles.unit}>ms</span></span>
+      <span className={styles.bottom}>Latency-Total</span>
     </div>
   </div>,
 
   <div className={styles.container}>
     <span className={styles['graph-title']}>Cloud Safety</span>
-
-    <div style={{
-      flex: '1',
-      width: '100%',
-      background: 'url("/dashboard/safety.svg") center / contain no-repeat',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center'
-    }}>
+    <div className={styles['cloud-safety']}>
       <span>safety</span>
-      <span>9.3 <span>/10</span></span>
+      <span><span className={styles.big}>9.3</span> /10</span>
       <span>Total Score</span>
     </div>
-  </div>,
+  </div >,
 ]
 
 export const instances = [
@@ -270,8 +299,9 @@ export const instances = [
     </ResponsiveContainer>
   </div>,
 
-  <div className={styles.container}>
-    <span className={styles['graph-title']}>AWS Instances</span>
-    <div className={styles.table}></div>
-  </div>,
+  <Table data={instanceDatas.awsInstances} />,
+  <Table data={instanceDatas.azureInstances} />,
+  <Table data={instanceDatas.gcpInstances} />,
+  <Table data={instanceDatas.ociInstances} />,
+  <Table data={instanceDatas.naverInstances} />,
 ]

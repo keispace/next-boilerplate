@@ -752,4 +752,64 @@ export const instanceDatas = {
     { x: 24, v0: 127, v1: 260, v2: 121, v3: 200, v4: 186 },
     { x: 25, v0: 453, v1: 436, v2: 472, v3: 200, v4: 413 },
   ],
+
+  awsInstances: {
+    title: 'AWS Instances',
+    sub: '552 items found in 26 groups',
+    headers: ['Instance Type', 'Creator', 'Processors', 'Launch Time'],
+    rows: [
+      ['t3.medium (8)', '', '16', ''],
+      ['t2.xlarge (6)', '', '24', ''],
+      ['t2.small (7)', '', '7', ''],
+      ['t2.micro (37)', '', '37', ''],
+    ],
+  },
+
+  azureInstances: {
+    title: 'Azure Instances',
+    sub: '174 items found in 16 groups',
+    headers: ['Instance Type', 'Capacity - Total (GB)', 'IOPS -TOtal (IO/s)', 'Cost Value'],
+    rows: [
+      ['Standard_B1s (1)', '32.00', '0.06', ''],
+      ['Standard_B2s (1)', '127.00', 'N/A', ''],
+      ['Standard_L16s_v2 (2)', '230.00', '0.03', ''],
+      ['Standard_D1 (1)', '30.00', 'N/A', ''],
+    ],
+  },
+
+  gcpInstances: {
+    title: 'GCP Instances',
+    sub: '51 items found in 17 groups',
+    headers: ['Instance Type', 'Creator', 'Processors', 'Launch Time'],
+    rows: [
+      ['us-east4-a:n1-stand... (1)', '', '1', '2023-06-09T01'],
+      ['us-east4-b:n1-stand... (1)', 'alundt', '1', '2023-06-012T11'],
+      ['us-east1-c:n1-stand... (1)', 'sdimig', '2', '2023-06-20T16'],
+      ['us-east1-c:n1-stand... (1))', 'sdimig', '1', '2023-06-30T16'],
+    ],
+  },
+
+  ociInstances: {
+    title: 'OCI Instances',
+    sub: '51 items found in 17 groups',
+    headers: ['Instance Type', 'Creator', 'Processors', 'Launch Time'],
+    rows: [
+      ['us-east4-a:n1-stand... (1)', '', '1', '2023-06-09T01'],
+      ['us-east4-b:n1-stand... (1)', 'alundt', '1', '2023-06-012T11'],
+      ['us-east1-c:n1-stand... (1)', 'sdimig', '2', '2023-06-20T16'],
+      ['us-east1-c:n1-stand... (1))', 'sdimig', '1', '2023-06-30T16'],
+    ],
+  },
+
+  naverInstances: {
+    title: 'Ncloud Instances',
+    sub: '51 items found in 17 groups',
+    headers: ['Instance Type', 'Creator', 'Processors', 'Launch Time'],
+    rows: [
+      ['us-east4-a:n1-stand... (1)', '', '1', '2023-06-09T01'],
+      ['us-east4-b:n1-stand... (1)', 'alundt', '1', '2023-06-012T11'],
+      ['us-east1-c:n1-stand... (1)', 'sdimig', '2', '2023-06-20T16'],
+      ['us-east1-c:n1-stand... (1))', 'sdimig', '1', '2023-06-30T16'],
+    ],
+  },
 };
