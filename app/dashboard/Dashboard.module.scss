@@ -74,6 +74,7 @@
   }
   &.storage1wrap {
     flex: 1.7;
+    border: 0;
   }
   & .storage1 {
     display: grid;
@@ -394,4 +395,20 @@
     height: 0.5rem;
     border-radius: 50%;
   }
+}
+
+.shiny-border {
+  border: 1px solid transparent;
+  // background-image: linear-gradient(0deg, rgba(30, 30, 30, 0.5) 0%, rgba(30, 30, 30, 0) 100%),
+  // linear-gradient(360deg, #000000 0%, #6bebff 70.83%, rgba(174, 244, 255, 0.96) 83.33%, rgba(0, 0, 0, 0) 100%);
+  border-image: linear-gradient(
+    360deg,
+    #000000 0%,
+    #6bebff 70.83%,
+    rgba(174, 244, 255, 0.96) 83.33%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border-image-slice: 1;
+  // background-origin: border-box;
+  // background-clip: content-box, border-box;
 }

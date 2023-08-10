@@ -38,7 +38,7 @@ const Dashboard = () => {
 
     <div className={styles.wrap}>
       <span className={styles.title}>Storage Analysis</span>
-      <div className={styles.rowbox}>
+      <div className={`${styles.rowbox} ${styles['shiny-border']}`}>
         <div className={`${styles.grid} ${styles.storage1wrap}`}>
           <div className={` ${styles.storage1}`}>
             <div className={`${styles.azure}`}><Image src='/dashboard/logos/azure.svg' alt='azure' width="80" height="23" /> &nbsp; 14%</div>
@@ -79,7 +79,7 @@ const Dashboard = () => {
 
             <StorageCircle className={`${styles.circle}`}
               colors={detailColor.map((el, i) => i === colors.indexOf(data.color) ? data.color : el)}
-              activeColor={data.color}
+              activeColor={data.color} borderless={true}
             >
               <p>
                 <Image src={`/dashboard/detail/detail-${data.class}.png`} alt={data.class} width={158} height="127" />
@@ -106,12 +106,15 @@ const Dashboard = () => {
 
     <div className={styles.wrap}>
       <span className={styles.title}>Bloackchain</span>
-      <div className={`${styles.grid} ${styles.chain}`}>
-        <Label title={'Blockchain ID'} value={'did:infra:01:PUB_K1_7spiSqWFNiybB5LBJXW4svEbujHMKKgbqYeBfARCf3e2WUWm3'} />
-        <Label title={'Network'} value={'InfraBlockchain Mainnet'} />
-        <Label title={'Balance'} value={'$52,845'} />
-        <Label title={'Blocks'} value={'353,092,790'} />
-        <Label title={'Connected Nodes'} value={'12'} />
+      <div className={`${styles.rowbox} ${styles['shiny-border']}`}>
+
+        <div className={`${styles.grid} ${styles.chain} `}>
+          <Label title={'Blockchain ID'} value={'did:infra:01:PUB_K1_7spiSqWFNiybB5LBJXW4svEbujHMKKgbqYeBfARCf3e2WUWm3'} />
+          <Label title={'Network'} value={'InfraBlockchain Mainnet'} />
+          <Label title={'Balance'} value={'$52,845'} />
+          <Label title={'Blocks'} value={'353,092,790'} />
+          <Label title={'Connected Nodes'} value={'12'} />
+        </div>
       </div>
     </div>
 
@@ -149,7 +152,7 @@ const Dashboard = () => {
     </div>
 
 
-  </div>
+  </div >
 }
 
 export default Dashboard;

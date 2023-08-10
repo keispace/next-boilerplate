@@ -5,10 +5,11 @@ export interface circleOptions {
   activeColor?: string,
   activeBackgroundColor?: string,
   colors: string[],
+  borderless?: boolean,
   children: React.ReactNode,
   className?: string
 }
-const StorageCircle = ({ className, activeColor, activeBackgroundColor, colors, children }: circleOptions) => {
+const StorageCircle = ({ borderless, className, activeColor, activeBackgroundColor, colors, children }: circleOptions) => {
   const radius = 170
   const centerX = 190
   const centerY = 190
@@ -40,11 +41,14 @@ const StorageCircle = ({ className, activeColor, activeBackgroundColor, colors, 
         </linearGradient>
       </defs>
 
-      <circle cx={centerX} cy={centerY} r={radius + 15} stroke="#5F5F5F" fill='none' fillOpacity="0" strokeWidth='3' strokeOpacity="0.68" />
-      <circle className={styles.ani} cx={centerX} cy={centerY} r={radius + 10} stroke={`url(#${`grad-${activeColor}`})`} fill='none' fillOpacity="0" strokeWidth='3' strokeOpacity='0' style={{ animationDelay: `${Math.random()}s` }} />
+      <circle cx={centerX} cy={centerY} r={radius + 15} stroke="#5F5F5F" fill='none' fillOpacity="0" strokeWidth='2' strokeOpacity="0.68" />
+      <circle className={styles.ani} cx={centerX} cy={centerY} r={radius + 15} stroke={`url(#${`grad-${activeColor}`})`} fill='none' fillOpacity="0" strokeWidth='2' strokeOpacity='0' style={{ animationDelay: `${Math.random()}s` }} />
 
       {colors.map((color, i) =>
-        <><path key={'path-border' + color} d={` M ${points[2 * i][0]} ${points[2 * i][1]} A ${centerX} ${centerY}, 0, 0, 1, ${points[2 * i + 1][0]} ${points[2 * i + 1][1]}`} stroke={'#ffffff80'} strokeWidth='10' fill="transparent" />
+        <>
+          {borderless ? null :
+            <path key={'path-border' + color} d={` M ${points[2 * i][0]} ${points[2 * i][1]} A ${centerX} ${centerY}, 0, 0, 1, ${points[2 * i + 1][0]} ${points[2 * i + 1][1]}`} stroke={'#ffffff80'} strokeWidth='10' fill="transparent" />
+          }
           <path key={'path' + color} d={` M ${points[2 * i][0]} ${points[2 * i][1]} A ${centerX} ${centerY}, 0, 0, 1, ${points[2 * i + 1][0]} ${points[2 * i + 1][1]}`}
             stroke={color} strokeWidth='8' fill="transparent" filter={`drop-shadow(0 0 5px ${color}99)`}
           />
