@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from './Header.module.scss';
-import { Icon_My, Icon_Search } from './Icons';
+import { Icon_My, Icon_Search } from '../Icons';
 import { usePathname } from 'next/navigation';
 
 

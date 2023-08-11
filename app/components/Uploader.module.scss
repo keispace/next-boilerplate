@@ -6,13 +6,6 @@
   justify-content: flex-start;
   color: #fff;
 
-  :global(.ant-upload.ant-upload-drag) {
-    border: 1px solid #81e1ff;
-    border-radius: 4px;
-    background: linear-gradient(0deg, rgba(0, 151, 171, 0.1) 0%, rgba(0, 151, 171, 0.1) 100%),
-      linear-gradient(0deg, rgba(30, 30, 30, 0.5) 0%, rgba(30, 30, 30, 0) 100%);
-    backdrop-filter: blur(21px);
-  }
   :global(.ant-upload-list.ant-upload-list-text) {
     margin-top: 3rem;
     background: linear-gradient(0deg, rgba(30, 30, 30, 0.5) 0%, rgba(30, 30, 30, 0) 100%);
@@ -29,6 +22,19 @@
 
 .uploader {
   width: 100%;
+  :global(.ant-upload.ant-upload-drag) {
+    border: 1px solid #222;
+    border-radius: 4px;
+    :global(.ant-upload.ant-upload-btn) {
+      border: 0;
+    }
+  }
+  :global(.ant-upload.ant-upload-drag.ant-upload-drag-hover) {
+    border: 1px solid #81e1ff;
+    background: linear-gradient(0deg, rgba(0, 151, 171, 0.1) 0%, rgba(0, 151, 171, 0.1) 100%),
+      linear-gradient(0deg, rgba(30, 30, 30, 0.5) 0%, rgba(30, 30, 30, 0) 100%);
+    backdrop-filter: blur(21px);
+  }
 }
 .icon {
   & > svg {
@@ -87,8 +93,21 @@
     }
   }
 }
+.filerow:hover {
+  background: rgba(82, 82, 82, 0.2);
+}
 .headerrow {
   display: none;
   color: #9ea4b8;
   font-family: Pretendard;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
 }

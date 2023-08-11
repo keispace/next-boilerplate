@@ -20,7 +20,6 @@ const FolderItem = ({ title, cnt }: { title: string, cnt: number }) => <div clas
 </div>
 
 
-
 const Storage = () => {
   return <div className={styles.container}>
 

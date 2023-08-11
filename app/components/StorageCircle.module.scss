@@ -46,13 +46,9 @@
   stroke-dasharray: 200;
   stroke-dashoffset: 200;
   animation: progress;
-  // animation-duration: 3s;
-  // animation-iteration-count: infinite;
   transform-origin: 50% 50%;
   animation-fill-mode: forwards;
-  // &:nth-of-type(4) {
-  //   animation-duration: 5s;
-  // }
+  will-change: stroke-dashoffset;
 }
 
 @keyframes progress {
