@@ -2,6 +2,7 @@ import styles from './Storage.module.scss';
 import { LinearGraph } from '../components/Graph';
 import Image from "next/image";
 import Uploader from '../components/Uploader';
+import SearchInput from '../components/Search';
 
 const Label = ({ title, value }: any) =>
   <div className={styles.label}>
@@ -18,45 +19,14 @@ const FolderItem = ({ title, cnt }: { title: string, cnt: number }) => <div clas
   </div>
 </div>
 
-const mock_Files = [
-  {
-    file_name: 'prescription-2023-SMC.pdf',
-    status: 'Encrypted',
-    date: 'Tue, 11 July 2023',
-    size: 503.6
-  },
-  {
-    file_name: 'prescription-2023-SMC.pdf',
-    status: 'Encrypted',
-    date: 'Tue, 11 July 2023',
-    size: 821
-  },
-  {
-    file_name: 'CT-Chest-071123-24.dcm',
-    status: 'Encrypted',
-    date: 'Tue, 11 July 2023',
-    size: 6144
-  },
-  {
-    file_name: 'CT-Brain-071123-40.dcm',
-    status: 'Encrypted',
-    date: 'Tue, 11 July 2023',
-    size: 1228.8
-  },
-  {
-    file_name: 'CT-Brain-071123-39.dcm',
-    status: 'Encrypted',
-    date: 'Tue, 11 July 2023',
-    size: 912
-  }
-]
+
 
 const Storage = () => {
   return <div className={styles.container}>
 
     <div className={styles.wrap}>
       <span className={styles.title}>Storage Analysis</span>
-      <div className={`${styles.grid} ${styles.analysis}`}>
+      <div className={`${styles.analysis}`}>
         <Label title={'Used Storage / Total Storage'} value={'1,350 / 3,950 TB'} />
         <div>33% Used</div>
 
@@ -83,12 +53,22 @@ const Storage = () => {
     </div>
 
     <div className={styles.wrap}>
-      <div className={`${styles.colbox}`}>
-        <div>category</div>
-        <Uploader />
-        <div>file list</div>
+      <div className={`${styles.rowbox}`}>
 
+        <div className={`${styles.left} ${styles.rowbox}`}>
+          <div className={styles.active}>All Files (213k)</div>
+          <div>Recents</div>
+          <div>Favorite</div>
+          <div>Trash</div>
+        </div>
+        <div className={`${styles.right} ${styles.rowbox}`}>
+          <SearchInput />
+          <div className={styles.icon}><Image src={`/storage/icons/list.svg`} alt={`icon-list`} fill /></div>
+          <div className={styles.icon}><Image src={`/storage/icons/thumb.svg`} alt={`icon-thumb`} fill /></div>
+        </div>
       </div>
+      <Uploader />
+
     </div>
 
 

@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import ThemeProvider from '@/config/Providers';
-import { siteConfig } from '@/config/site-config';
 import '@/styles/globals.css';
 
 import 'antd/dist/reset.css';
