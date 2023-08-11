@@ -10,6 +10,14 @@
   height: auto;
   stroke-linecap: round;
 }
+.children {
+  width: max-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+}
 
 .ani {
   animation: preloader 3s infinite ease;
@@ -34,11 +42,21 @@
   }
 }
 
-.children {
-  width: max-content;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: block;
+.progress {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: progress;
+  // animation-duration: 3s;
+  // animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+  animation-fill-mode: forwards;
+  // &:nth-of-type(4) {
+  //   animation-duration: 5s;
+  // }
+}
+
+@keyframes progress {
+  100% {
+    stroke-dashoffset: 0;
+  }
 }

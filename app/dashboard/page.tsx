@@ -49,7 +49,7 @@ const Dashboard = () => {
             <div className={`${styles.sf}`}><Image src='/dashboard/logos/salesforce.svg' alt='salesforce' width="46" height="32" /> &nbsp;  12%</div>
             <div className={`${styles.ibm}`}>12%  &nbsp; <Image src='/dashboard/logos/ibm.svg' alt='ibm' width="76" height="47" /> </div>
             <div className={`${styles.aws}`}>15%  &nbsp; <Image src='/dashboard/logos/aws.svg' alt='aws' width="58" height="49" /> </div>
-            <StorageCircle className={`${styles.circle}`} colors={colors}>
+            <StorageCircle className={`${styles.circle}`} colors={colors} >
               <p>
                 <span>Storage Usage</span>
                 <span className={styles.big}>1,350 TB</span>

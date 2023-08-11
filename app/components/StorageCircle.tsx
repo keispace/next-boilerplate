@@ -1,3 +1,5 @@
+'use client'
+import { useState } from 'react';
 import styles from './StorageCircle.module.scss';
 
 
@@ -7,9 +9,11 @@ export interface circleOptions {
   colors: string[],
   borderless?: boolean,
   children: React.ReactNode,
+  progress?: boolean,
+  progressDurations?: number[]
   className?: string
 }
-const StorageCircle = ({ borderless, className, activeColor, activeBackgroundColor, colors, children }: circleOptions) => {
+const StorageCircle = ({ borderless, className, activeColor, activeBackgroundColor, colors, children, progress, progressDurations }: circleOptions) => {
   const radius = 170
   const centerX = 190
   const centerY = 190
@@ -18,15 +22,15 @@ const StorageCircle = ({ borderless, className, activeColor, activeBackgroundCol
   const rotationAngle = -90 + arcCnt
   const arcAngle = 360 / arcCnt; // 45 
   const arcTermAngle = arcCnt; // Math.floor(arcAngle / 10) // 4
-  const arcBarAngle = arcAngle - arcTermAngle // 41 
+  const arcBGAngle = arcAngle - arcTermAngle // 41 
 
   const points: [number, number][] = []
   for (let i = 0; i < arcCnt; i++) {
-    const seta = (arcBarAngle * i + arcTermAngle * i + rotationAngle) * Math.PI / 180;
+    const seta = (arcBGAngle * i + arcTermAngle * i + rotationAngle) * Math.PI / 180;
     const px = centerX + radius * Math.cos(seta)
     const py = centerY + radius * Math.sin(seta)
     points.push([px, py])
-    const seta1 = (arcBarAngle * (i + 1) + arcTermAngle * i + rotationAngle) * Math.PI / 180;
+    const seta1 = (arcBGAngle * (i + 1) + arcTermAngle * i + rotationAngle) * Math.PI / 180;
     const px1 = centerX + radius * Math.cos(seta1)
     const py1 = centerY + radius * Math.sin(seta1)
     points.push([px1, py1])
@@ -49,8 +53,9 @@ const StorageCircle = ({ borderless, className, activeColor, activeBackgroundCol
           {borderless ? null :
             <path key={'path-border' + color} d={` M ${points[2 * i][0]} ${points[2 * i][1]} A ${centerX} ${centerY}, 0, 0, 1, ${points[2 * i + 1][0]} ${points[2 * i + 1][1]}`} stroke={'#ffffff80'} strokeWidth='10' fill="transparent" />
           }
-          <path key={'path' + color} d={` M ${points[2 * i][0]} ${points[2 * i][1]} A ${centerX} ${centerY}, 0, 0, 1, ${points[2 * i + 1][0]} ${points[2 * i + 1][1]}`}
+          <path key={'path' + color} className={progress ? styles.progress : ''} d={` M ${points[2 * i][0]} ${points[2 * i][1]} A ${centerX} ${centerY}, 0, 0, 1, ${points[2 * i + 1][0]} ${points[2 * i + 1][1]}`}
             stroke={color} strokeWidth='8' fill="transparent" filter={`drop-shadow(0 0 5px ${color}99)`}
+            style={{ animationDuration: `${(progressDurations ? progressDurations[i] : 3 * (2 * Math.random()))}s` }}
           />
         </>)}
     </svg>
