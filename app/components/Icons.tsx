@@ -41,3 +41,15 @@ export const Icon_Upload = () => <svg width="64" height="64" viewBox="0 0 64 64"
 </svg>
 
 
+export const Icon_Modal_Minus = () => <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0.5" y="0.5" width="27" height="27" rx="3.5" fill="white" fillOpacity="0.1" />
+  <path d="M6 14H22" stroke="#A1A1A1" strokeWidth="1.5" strokeLinecap="round" />
+  <rect x="0.5" y="0.5" width="27" height="27" rx="3.5" stroke="#222222" />
+</svg>
+
+export const Icon_Modal_Close = () => <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0.5" y="0.5" width="27" height="27" rx="3.5" fill="white" fillOpacity="0.1" />
+  <line x1="0.75" y1="-0.75" x2="17.7089" y2="-0.75" transform="matrix(0.703174 0.711018 -0.703174 0.711018 7 7.875)" stroke="#A1A1A1" strokeWidth="1.5" strokeLinecap="round" />
+  <line x1="0.75" y1="-0.75" x2="17.7089" y2="-0.75" transform="matrix(-0.703174 0.711018 0.703174 0.711018 21 7.875)" stroke="#A1A1A1" strokeWidth="1.5" strokeLinecap="round" />
+  <rect x="0.5" y="0.5" width="27" height="27" rx="3.5" stroke="#222222" />
+</svg>

@@ -8,7 +8,6 @@ import { useTheme } from 'next-themes';
 
 
 import { AntdProvider } from './AntdProvider';
-import { COLORS } from '@/config/site-config';
 import { LayoutProvider } from './PathLayoutProvider';
 
 export type ProviderProps = PropsWithChildren<{
@@ -22,13 +21,7 @@ export function AntdConfigProvider({ children }: ProviderProps) {
       theme={{
         algorithm:
           nowTheme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
-        // token: {
-        // colorPrimary: '#1b1b1b',
-        // colorText: '#B3B3B3',
-        // colorBgContainer: '#f6f7f9',
-        // colorBorder: '#1b1b1b',
-        // borderRadiusLG: 0,
-        // },
+
 
         components: {
           Divider: {
@@ -36,8 +29,38 @@ export function AntdConfigProvider({ children }: ProviderProps) {
             margin: 16,
             marginLG: 16,
             marginXS: 16,
-
           },
+          Button: {
+            colorPrimary: '#090A0D',
+            colorPrimaryHover: '#090A0D',
+            colorPrimaryActive: '#090A0D',
+            colorBgContainerDisabled: "rgba(215, 219, 231, 1)",
+            colorTextDisabled: "#ffffff",
+            borderRadius: 0,
+            colorLink: '#090A0D',
+          },
+          Collapse: {
+            borderRadiusLG: 0,
+            colorBorder: '#D7DBE7',
+            colorTextHeading: 'rgba(173, 176, 190, 1)',
+            colorFillAlter: '#fff',
+            colorBgContainer: '#fff',
+            colorText: '#000',
+          },
+          Switch: {
+            colorPrimary: '#090A0D',
+            colorPrimaryHover: '#090A0D',
+            colorPrimaryBorder: '#090A0D',
+            colorTextQuaternary: 'rgba(215, 219, 231, 0.5)',
+            colorTextTertiary: 'rgba(215, 219, 231, 0.5)',
+          },
+          Tabs: {
+
+            itemSelectedColor: 'rgba(66, 71, 85, 1)',
+            itemHoverColor: 'rgba(66, 71, 85, 1)',
+            itemActiveColor: 'rgba(66, 71, 85, 1)',
+            inkBarColor: 'rgba(66, 71, 85, 1)',
+          }
         }
 
       }

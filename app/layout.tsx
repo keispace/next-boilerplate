@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 import ThemeProvider from '@/config/Providers';
-import '@/styles/globals.css';
+import '@/styles/globals.scss';
 
 import 'antd/dist/reset.css';
+import { AppProvider } from '@/config/AppContext';
 
 export default async function RootLayout({ children }: {
   children: React.ReactNode;
@@ -20,15 +21,17 @@ export default async function RootLayout({ children }: {
       </head>
       <body>
         <ThemeProvider >
-          <main>{children}</main>
+          <AppProvider>
+            <main>{children}</main>
+          </AppProvider>
         </ThemeProvider>
       </body>
     </html>
   );
 }
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Blockchain Multi-Cloud';
-  const description = 'Blockchain Multi-Cloud';
+  const title = 'Open I';
+  const description = 'Open I Platform';
   return {
     title,
     description,

@@ -1,0 +1,90 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: #0c0c0c;
+  gap: calc(236 / 1920 * 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .signin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: min(415px, 30vw);
+    .title {
+      padding-bottom: 2rem;
+      color: #fff;
+      font-family: Poppins;
+      margin: 0 auto;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: -0.96px;
+      align-items: center;
+    }
+
+    .input-wrap {
+      width: min(415px, 100%);
+      padding-bottom: 1rem;
+
+      .text {
+        padding-bottom: 0.5rem;
+        color: #fff;
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+      input {
+        border: 0;
+        border-radius: 5px;
+        background: #242424;
+        min-height: 48px;
+        width: min(415px, 100%);
+        color: rgba(255, 255, 255, 0.2);
+        font-family: Pretendard;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+  }
+  video {
+    width: min(801px, calc(801 / 1920 * 100%));
+  }
+  button {
+    width: min(415px, 100%);
+    min-height: 56px;
+    border-radius: 4px;
+    background: #045459;
+    border: 0;
+    color: #fff;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    &:not(:disabled):focus,
+    &:not(:disabled):hover {
+      background: #045459 !important;
+      border: 0;
+    }
+  }
+  .forgot {
+    color: rgba(255, 255, 255, 0.4);
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 14px */
+    text-decoration-line: underline;
+    margin-top: -1rem;
+    padding-bottom: 3rem;
+    cursor: pointer;
+  }
+}

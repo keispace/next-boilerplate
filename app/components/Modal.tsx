@@ -1,6 +1,6 @@
 'use client'
 import { UploadFile } from 'antd';
-import { ExtIcons } from './Icons';
+import { ExtIcons, Icon_Modal_Close, Icon_Modal_Minus } from './Icons';
 import styles from './Modal.module.scss';
 import { useState } from 'react';
 import CountUp from 'react-countup';
@@ -48,18 +48,22 @@ const PhaseOneTwo = ({ phase, setPhase }: any) => {
 }
 
 
-const PhaseBody = ({ phase, setPhase }: any) => {
+const UploadPhaseBody = ({ phase, setPhase }: any) => {
   switch (phase) {
     case 1: case 2: return <PhaseOneTwo phase={phase} setPhase={(i: number) => setPhase(i)} />
     case 3: return <div>phase 3</div>
     default: return null;
   }
 }
-export const ModalUpload = ({ file }: uploadOptions) => {
-  const [phase, setPhase] = useState<number>(1)
+export const ModalUpload = ({ file, setProxyUploadOpen }: { setProxyUploadOpen: any } & uploadOptions) => {
+  const [phase, setPhase] = useState<number>(1)// 1~3
+  if (phase === 2) {
+
+    setProxyUploadOpen(null);
+  }
   return <div className={styles.container}>
     <div className={styles.upheader}>
-      <div>_ X</div>
+      <div><Icon_Modal_Minus /> <Icon_Modal_Close /></div>
       <div>
         <div>
           <ExtIcons ext={file.name.split('.')[1]} size={48} />
@@ -71,13 +75,32 @@ export const ModalUpload = ({ file }: uploadOptions) => {
       </div>
     </div>
     <div className={styles.upbody}>
-      <PhaseBody phase={phase} setPhase={setPhase} />
+      <UploadPhaseBody phase={phase} setPhase={setPhase} />
     </div>
 
   </div>
 }
 
+export const ModalDownload = ({ file }: uploadOptions) => {
+  const [phase, setPhase] = useState<number>(1)// 1~5
+  return <div className={styles.container}>
+    <div className={styles.upheader}>
+      <div> <Icon_Modal_Close /></div>
+      <div>
+        <div>
+          <ExtIcons ext={file.name.split('.')[1]} size={48} />
+        </div>
+        <div>
+          <p>{file.name}</p>
+          <p>{setSize(file.size)}</p>
+        </div>
+      </div>
+    </div>
+    <div className={styles.upbody}>
+      download    </div>
 
+  </div>
+}
 
 const code = `
 import "@babel/polyfill"

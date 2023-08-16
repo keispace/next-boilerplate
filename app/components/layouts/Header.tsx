@@ -10,14 +10,9 @@ const HeaderMenu = () => {
     <div className={styles.wrap}>
       <div className={styles.logo}>Blockchain Multi-Cloud</div>
       <div className={styles.menus}>
-        <Link href="/dashboard">
-          <div className={`${styles.menu} ${pathname === '/dashboard' ? styles.active : ''}`}>Dashboard</div>
+        <Link href="/">
+          <div className={`${styles.menu} ${pathname === '/' ? styles.active : ''}`}>Home</div>
         </Link>
-        <Link href="/storage">
-          <div className={`${styles.menu} ${pathname === '/storage' ? styles.active : ''}`}>Storage</div>
-        </Link>
-        <div className={`${styles.menu} ${pathname === '/billing' ? styles.active : ''}`}>Billing</div>
-        <div className={`${styles.menu} ${pathname === '/settings' ? styles.active : ''}`}>Settings</div>
       </div>
       <div className={styles.icons}>
         <div className={styles.icon}><Icon_Search /></div>
